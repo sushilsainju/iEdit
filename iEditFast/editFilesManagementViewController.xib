@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="editFilesManagementViewController">
+            <connections>
+                <outlet property="bothButton" destination="3Lz-Gi-a5A" id="UY5-DF-QLy"/>
+                <outlet property="bothContainerView" destination="EC4-qG-Y75" id="Ubs-vu-frM"/>
+                <outlet property="bothTableView" destination="FjI-GV-s1t" id="6bf-85-XiW"/>
+                <outlet property="buttonComposite" destination="CSL-FN-5Jn" id="igR-h4-TRS"/>
+                <outlet property="buttonIndividual" destination="K1r-LM-9Tl" id="FQS-bi-W7c"/>
+                <outlet property="compositeContainerView" destination="VDn-1f-88V" id="9UR-k8-j0E"/>
+                <outlet property="compositeTableView" destination="2Hm-1y-XfI" id="kei-Dp-J9V"/>
+                <outlet property="containerView" destination="0g1-zq-5mA" id="rhj-gz-DVp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="0g1-zq-5mA" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CSL-FN-5Jn" userLabel="ButtonComposite">
+                            <rect key="frame" x="10" y="151" width="300" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="Untick_Composite.png">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="compositeButtonClicked:" destination="-1" eventType="touchUpInside" id="LkG-fd-HAh"/>
+                            </connections>
+                        </button>
+                        <view tag="1" contentMode="scaleToFill" id="VDn-1f-88V" userLabel="composite">
+                            <rect key="frame" x="10" y="220" width="300" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="2Hm-1y-XfI" userLabel="editFilesTableView" customClass="FMMoveTableView">
+                                    <rect key="frame" x="5" y="7" width="290" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="bqx-fe-p0Z"/>
+                                        <outlet property="delegate" destination="-1" id="mFc-kd-CuI"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K1r-LM-9Tl" userLabel="ButtonIndividual">
+                            <rect key="frame" x="10" y="46" width="300" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="Untick_Single.png">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="individualFilesButtonClicked:" destination="-1" eventType="touchUpInside" id="tKX-3N-Ulo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Lz-Gi-a5A" userLabel="ButtonBoth">
+                            <rect key="frame" x="10" y="262" width="300" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="Untick_Both.png">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="bothButtonClicked:" destination="-1" eventType="touchUpInside" id="2DO-PG-6X5"/>
+                            </connections>
+                        </button>
+                        <view tag="3" contentMode="scaleToFill" id="EC4-qG-Y75" userLabel="both">
+                            <rect key="frame" x="10" y="325" width="300" height="46"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FjI-GV-s1t" userLabel="editFilesTableViewForBoth" customClass="FMMoveTableView">
+                                    <rect key="frame" x="5" y="7" width="290" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="Rkd-1b-eBL"/>
+                                        <outlet property="delegate" destination="-1" id="v2E-2d-yZV"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Untick_Both.png" width="300" height="55"/>
+        <image name="Untick_Composite.png" width="300" height="55"/>
+        <image name="Untick_Single.png" width="300" height="55"/>
+    </resources>
+</document>

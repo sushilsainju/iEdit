@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerViewController">
+            <connections>
+                <outlet property="SpeakerImage" destination="xt4-cT-T0l" id="vUV-Ro-WbR"/>
+                <outlet property="containerView" destination="S3v-s8-FUc" id="nnJ-GR-lQj"/>
+                <outlet property="currentTimeLabel" destination="mm8-Gx-u7F" id="5CQ-qz-DVd"/>
+                <outlet property="durationLabel" destination="big-Ba-MGG" id="Eev-Vy-5NL"/>
+                <outlet property="filenameLabel" destination="2IC-xQ-TH4" id="ndw-mc-5Mx"/>
+                <outlet property="nextbtn" destination="1Dh-3r-yh7" id="tNm-WT-pkb"/>
+                <outlet property="pausePlayBtn" destination="Lqo-pJ-d0V" id="Lx5-l0-jco"/>
+                <outlet property="positionSlider" destination="qTZ-4Z-USK" id="O5n-Ef-EYM"/>
+                <outlet property="previousBtn" destination="8nA-d2-OhI" id="aZh-gw-H5K"/>
+                <outlet property="sliderContainer" destination="MBB-FA-BZu" id="0AV-VB-8IX"/>
+                <outlet property="spakerContainer" destination="Pz4-gF-Psp" id="U4K-XD-RqD"/>
+                <outlet property="view" destination="1" id="3"/>
+                <outlet property="volumeContainer" destination="fKv-rM-nAm" id="7Iz-6D-3xs"/>
+                <outlet property="volumeSlider" destination="V5L-Ow-6iJ" id="2EC-4H-AjA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="S3v-s8-FUc" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="MBB-FA-BZu">
+                            <rect key="frame" x="0.0" y="51" width="320" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="7ok-9A-Kbu">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="2IC-xQ-TH4" userLabel="Filename Label">
+                                            <rect key="frame" x="10" y="8" width="300" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <slider opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="qTZ-4Z-USK" userLabel="Position Slider">
+                                    <rect key="frame" x="50" y="39" width="220" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="maximumTrackTintColor" red="0.61960784310000006" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="currentTimeSliderTouchUpInside:" destination="-1" eventType="touchUpInside" id="Dyc-Cm-j3l"/>
+                                        <action selector="currentTimeSliderTouchUpInside:" destination="-1" eventType="valueChanged" id="pmo-t4-oN5"/>
+                                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="YEd-aE-94q"/>
+                                    </connections>
+                                </slider>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="00:00" lineBreakMode="tailTruncation" minimumFontSize="10" id="mm8-Gx-u7F" userLabel="currentTime Label">
+                                    <rect key="frame" x="5" y="45" width="40" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="big-Ba-MGG" userLabel="RemainingTime Label">
+                                    <rect key="frame" x="275" y="45" width="40" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </view>
+                        <view contentMode="scaleToFill" id="fKv-rM-nAm">
+                            <rect key="frame" x="0.0" y="297" width="320" height="84"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <slider opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="V5L-Ow-6iJ" userLabel="Volume Slider">
+                                    <rect key="frame" x="50" y="0.0" width="220" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="maximumTrackTintColor" red="0.61960784310000006" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="volumeChanged:" destination="-1" eventType="valueChanged" id="jOC-eI-NiL"/>
+                                    </connections>
+                                </slider>
+                                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ICN_VolUp.png" id="HpS-na-neS">
+                                    <rect key="frame" x="295" y="8" width="17" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="ICN_VolDown.png" id="ZDY-AX-tA7">
+                                    <rect key="frame" x="9" y="8" width="17" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="brC-sJ-Vwx">
+                                    <rect key="frame" x="0.0" y="39" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <items>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9Wh-nX-lSL"/>
+                                        <barButtonItem style="plain" id="WWz-6g-K38">
+                                            <button key="customView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="8nA-d2-OhI">
+                                                <rect key="frame" x="53" y="2" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                                <state key="normal" image="previous.png">
+                                                    <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled" image="rewind.png"/>
+                                                <state key="selected" image="rewind.png"/>
+                                                <state key="highlighted" image="rewind.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="previusoBtnClicked:" destination="-1" eventType="touchUpInside" id="C68-G1-fZn"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Ns4-Gh-P95"/>
+                                        <barButtonItem title="Item" style="plain" id="Ngr-VT-N7v">
+                                            <button key="customView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Lqo-pJ-d0V">
+                                                <rect key="frame" x="140" y="2" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                                <state key="normal" image="play.png">
+                                                    <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled" image="play.png"/>
+                                                <state key="selected" image="play.png"/>
+                                                <state key="highlighted" image="play.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pauseplayClicked:" destination="-1" eventType="touchUpInside" id="hwJ-ss-8R3"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="meq-zH-7ap"/>
+                                        <barButtonItem style="plain" id="ZGf-8S-lvx">
+                                            <button key="customView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="1Dh-3r-yh7">
+                                                <rect key="frame" x="227" y="2" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                                <state key="normal" image="forward.png">
+                                                    <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled" image="forward.png"/>
+                                                <state key="selected" image="forward.png"/>
+                                                <state key="highlighted" image="forward.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="nextBtnClicked:" destination="-1" eventType="touchUpInside" id="uks-Ek-BbZ"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="YdB-id-y23"/>
+                                    </items>
+                                    <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </toolbar>
+                            </subviews>
+                        </view>
+                        <view contentMode="scaleToFill" id="Pz4-gF-Psp">
+                            <rect key="frame" x="0.0" y="115" width="320" height="193"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ICN_speaker.png" id="xt4-cT-T0l">
+                                    <rect key="frame" x="102" y="39" width="116" height="116"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <customObject id="fci-5g-YbY" customClass="avTouchController"/>
+    </objects>
+    <resources>
+        <image name="ICN_VolDown.png" width="17" height="17"/>
+        <image name="ICN_VolUp.png" width="17" height="17"/>
+        <image name="ICN_speaker.png" width="116" height="116"/>
+        <image name="forward.png" width="40" height="40"/>
+        <image name="play.png" width="40" height="40"/>
+        <image name="previous.png" width="40" height="40"/>
+        <image name="rewind.png" width="265" height="89"/>
+    </resources>
+</document>

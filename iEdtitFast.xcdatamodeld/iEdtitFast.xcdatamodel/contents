@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BookmarkImages" representedClassName="BookmarkImages" syncable="YES">
+        <attribute name="filepath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="forBookmark" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bookmarks" inverseName="hasImage" inverseEntity="Bookmarks" syncable="YES"/>
+    </entity>
+    <entity name="Bookmarks" representedClassName="Bookmarks" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeInSeconds" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="forRecording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Library" inverseName="containsBookmarks" inverseEntity="Library" syncable="YES"/>
+        <relationship name="hasImage" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BookmarkImages" inverseName="forBookmark" inverseEntity="BookmarkImages" syncable="YES"/>
+    </entity>
+    <entity name="ChunkFiles" representedClassName="ChunkFiles" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="partOf" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Library" inverseName="hasChunks" inverseEntity="Library" syncable="YES"/>
+    </entity>
+    <entity name="Library" representedClassName="Library" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filepath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isMaster" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="containedIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Playlists" inverseName="containsRecordings" inverseEntity="Playlists" syncable="YES"/>
+        <relationship name="containsBookmarks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bookmarks" inverseName="forRecording" inverseEntity="Bookmarks" syncable="YES"/>
+        <relationship name="hasChunks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChunkFiles" inverseName="partOf" inverseEntity="ChunkFiles" syncable="YES"/>
+        <relationship name="playlistitems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlaylistItems" inverseName="recording" inverseEntity="PlaylistItems" syncable="YES"/>
+    </entity>
+    <entity name="PlaylistItems" representedClassName="PlaylistItems" syncable="YES">
+        <attribute name="itemOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Playlists" inverseName="playlistitems" inverseEntity="Playlists" syncable="YES"/>
+        <relationship name="recording" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Library" inverseName="playlistitems" inverseEntity="Library" syncable="YES"/>
+    </entity>
+    <entity name="Playlists" representedClassName="Playlists" syncable="YES">
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="containsRecordings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Library" inverseName="containedIn" inverseEntity="Library" syncable="YES"/>
+        <relationship name="playlistitems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlaylistItems" inverseName="playlist" inverseEntity="PlaylistItems" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BookmarkImages" positionX="-405" positionY="162" width="128" height="90"/>
+        <element name="Bookmarks" positionX="-225" positionY="-90" width="128" height="133"/>
+        <element name="ChunkFiles" positionX="-594" positionY="54" width="128" height="120"/>
+        <element name="Library" positionX="-396" positionY="-171" width="128" height="163"/>
+        <element name="PlaylistItems" positionX="-470" positionY="-358" width="128" height="90"/>
+        <element name="Playlists" positionX="-630" positionY="-198" width="128" height="103"/>
+    </elements>
+</model>
